@@ -1,0 +1,212 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    /*background-color: rgb(255, 202, 104);*/
+    background-image: url('/img/Fondo_3.jpg');  /*Ruta a tu imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* La imagen se queda fija mientras el contenido se desplaza */
+    color: #fff; /* Color de texto para que se vea bien sobre la imagen de fondo */
+}
+
+header {
+    background-color: #eedaa4;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    color: rgb(221, 149, 41); /* Cambia el color a amarillo al pasar el cursor o hacer tab */
+}
+
+.logo-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra exactamente en el medio */
+    z-index: 5; /* Asegura que esté sobre las imágenes pero debajo de las flechas */
+    text-align: center;
+}
+
+.logo {
+    max-width: 150px; /* Ajusta el tamaño según necesites */
+    height: auto;
+    opacity: 0.9; /* Opcional: transparencia para integrarlo visualmente */
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)); /* Sombra para mejor contraste */
+}
+
+
+.hero {
+    font-family: Poppins, sans-serif;
+    text-align: center;
+    padding: 50px 20px;
+    /*     background-color: #fff; */
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.hero-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hero-images img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el slider */
+.slider-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: 76.5vh; /* Ajusta esto según el alto deseado */
+}
+
+.slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    transition: opacity 1.5s ease-in-out;
+    opacity: 0;
+    position: absolute;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.slider-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Estilos para el footer fijo */
+footer {
+    background: rgba(0, 0, 0, 0.8); /* Fondo negro difuminado */
+    color: #fff;
+    padding: 1px;
+    text-align: center;
+    position: fixed; /* Posición fija en la parte inferior */
+    bottom: 0; /* Ancla el footer a la parte inferior */
+    width: 100%; /* Ocupa todo el ancho de la página */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Sombra para separar el footer del contenido */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 5px;
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.footer-section p {
+    margin: 10px 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+   /* filter: invert(1);  Invertir colores para que se vean blancos */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .hero-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin: 20px 0;
+    }
+}

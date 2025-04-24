@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natura Glamping</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="domos.html">Domos</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="ubicacion.html">Ubicación</a></li>
+                <li><a href="reservaciones.html">Reservaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="slider">
+
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide active"><img src="/img/slider/slider1.jpg" alt="Imagen 1"></div>
+                <div class="slide"><img src="/img/slider/slider2.jpg" alt="Imagen 2"></div>
+                <div class="slide"><img src="/img/slider/slider3.jpg" alt="Imagen 3"></div>
+                <div class="slide"><img src="/img/slider/slider4.jpg" alt="Imagen 4"></div>
+                <div class="slide"><img src="/img/slider/slider5.jpg" alt="Imagen 5"></div>
+            </div>
+            <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
+
+             <!-- Logo superpuesto -->
+    <div class="logo-overlay">
+        <img src="/img/Logo2_v.png" alt="Logo" class="logo">
+    </div>
+
+        </div>
+    </section>
+
+    <!-- 
+    <main>
+        <section class="hero">
+            <h1>Natura Glamping Briones</h1>
+            <div class="hero-images">
+                <img src="tipo1.jpg" alt="tipo 1">
+                <img src="Tipo2.jpg" alt="Tipo 2">
+                <img src="Tipo3.jpg" alt="Tipo 3">
+            </div>
+        </section>
+    </main>
+-->
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SIGUENOS EN REDES</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=100083415305299" target="_blank"><img src="/img/Iconos/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/natura_glamping_briones/?hl=es" target="_blank"><img src="/img/Iconos/instagram.png" alt="Instagram"></a>
+                    <a href="https://www.tiktok.com/@naturaglamping_briones" target="_blank"><img src="/img/Iconos/tik-tok.png" alt="TikTok"></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Natura Reservation</h4>
+                <p>228 240 6341</p>
+                <p>naturaglampingbriones@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
