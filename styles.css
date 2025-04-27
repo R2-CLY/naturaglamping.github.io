@@ -245,15 +245,85 @@ footer {
     -o-transform: scale(1.3);
  }
 
+ .menu-toggle {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 30; /* Más arriba que el header */
+}
+
+/* =============== INICIA CONFIGURACIÓN RESPONSAIVA ===================== */
 
 /* Móviles pequeños */
 @media (max-width: 480px) {
+
+    header {
+        padding: 0px;
+    }
+
+    .menu-toggle {
+        display: none;
+        font-size: 24px;
+        background-color: #eedaa4; /* Fondo crema */
+        border: none;
+        color: #333;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        z-index: 30;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%; /* Hace que sea un botón redondo */
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        align-items: center;
+        justify-content: center;
+        display: flex; /* Para centrar el ícono */
+        transform: translateY(5px); /* Un pequeño ajuste para que "flote" */
+    }
+
+    .menu-toggle.open::before {
+       content: "✖"; /* Ícono de "X" */
+       font-size: 30px;
+    }
+    
+    .menu-toggle::before {
+        /*content: "☰";  Ícono de hamburguesa */
+        font-size: 30px;
+    }
+
     nav ul {
         flex-direction: column;
+        background-color: #eedaa4;
+        position: absolute;
+        top: 60px;
+        left: 20px;
+        width: 200px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        padding: 10px;
+        border-radius: 5px;
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity 0.3s ease-in, max-height 0.4s ease-in;
+        visibility: hidden;
+        opacity: 0;
+    }
+    
+    nav ul.show {
+        max-height: 500px;
+        visibility: visible;
+        opacity: 1;
+        transition: max-height 0.4s ease-in, opacity 0.3s ease-in;
     }
 
     nav ul li {
-        margin: 5px 0;
+        margin: 10px 0;
     }
 
     .logo-overlay {

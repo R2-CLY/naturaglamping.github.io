@@ -1,4 +1,4 @@
-//Creación de modulo
+//Creación de modulo --- SLIDER AUTOMÁTICO ---
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 let slideInterval;
@@ -33,3 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentSlide);
     slideInterval = setInterval(() => moveSlide(1), 3000);
 });
+
+
+// Creación de --- efecto MENÚ HAMBURGUESA ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navUl = document.querySelector('nav ul');
+
+    menuToggle.addEventListener('click', () => {
+        navUl.classList.toggle('show');
+        menuToggle.classList.toggle('open');
+    });
