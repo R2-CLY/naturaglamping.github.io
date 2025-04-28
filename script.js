@@ -43,3 +43,29 @@ document.addEventListener('DOMContentLoaded', () => {
         navUl.classList.toggle('show');
         menuToggle.classList.toggle('open');
     });
+
+    // Mostrar modal al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('welcomeModal');
+        const closeBtn = document.querySelector('.close-modal');
+        const acceptBtn = document.getElementById('acceptBtn');
+        
+        // Mostrar modal
+        modal.style.display = 'flex';
+        
+        // Cerrar modal al hacer clic en X o botón Aceptar
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        
+        acceptBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        
+        // Cerrar al hacer clic fuera del modal
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });

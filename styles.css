@@ -224,6 +224,189 @@ nav ul li a:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilos para la página ¿Quiénes Somos? */
+
+main.quienes-somos {
+    padding: 40px 20px; /* Igual que en Servicios */
+    flex: unset;
+    display: block;
+    padding-top: 10px;
+
+}
+
+.MessageFloatTittle{
+    text-align: center;
+}
+
+.MessageFloat{
+    text-align: justify;;
+}
+
+.quienes-somos .hero {
+    padding: 20px 20px; /* Reducimos el padding para no dejar tanto espacio */
+    background: none; /* No fondo extra, solo lo que pongamos en title-container */
+    display: block;
+}
+
+.title-container {
+    background-color: #beb494;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ocupar todo el ancho disponible */
+    max-width: 1200px; /* Igual que el content-section */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title-container h2 {
+    font-size: 32px;
+    color: #333;
+    margin: 0;
+}
+
+    
+
+
+.quienes-somos h1 {
+    color: #333;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.content-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch; /* Clave: que los hijos (tarjetas e imagen) midan lo mismo */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mision-vision {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Opcional: centra el contenido en su bloque */
+}
+
+.card {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h1 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-top: 0;
+    border-bottom: 2px solid #dfc675;
+    padding-bottom: 10px;
+}
+
+.card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.hero-images {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: flex-start; /* Que empiece desde arriba */
+}
+
+.hero-images img {
+    width: 100%;
+    height: auto; /* No forzamos altura */
+    max-height: 600px; /* Límite máximo para que no sobrepase */
+    object-fit: cover; /* Ajusta el recorte estético */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Estilos para el modal */
+.modal {
+    display: flex;
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Asegura que ocupe toda la pantalla */
+    height: 100vh; /* Igual: altura completa */
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    overflow: auto; /* Por si el contenido crece en móviles */
+}
+
+.modal-content {
+    background-color: #f5f5e9;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    margin: 0; /* MUY importante */
+    animation: modalopen 0.5s ease; /* Si quieres un efecto suave */
+}
+
+@keyframes modalopen {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.modal h2 {
+    color: #333;
+    margin-top: 0;
+}
+
+.modal p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.modal-btn {
+    background-color: #dfc675;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.modal-btn:hover {
+    background-color: #d4b45f;
+}
+
 
 /* Estilos para el footer fijo */
 footer {
@@ -267,7 +450,7 @@ footer {
 .footer-section a[href^="mailto:"] {
     display: inline-block; /* Necesario para la animación de escala */
     transition: all 0.3s ease; /* Animación suave de 0.3 segundos */
-    color: #fff; /* Color inicial (blanco) */
+    color: #badbad; /* Color inicial (azul grisáceo) */
     text-decoration: none; /* Elimina subrayado */
 }
 
@@ -323,18 +506,30 @@ footer {
     z-index: 30; /* Más arriba que el header */
 }
 
-/* =============== INICIA CONFIGURACIÓN RESPONSAIVA ===================== */
+/* =============== INICIA CONFIGURACIÓN RESPONSIVA ===================== */
 
 /* Móviles pequeños */
 @media (max-width: 480px) {
 
     body, html {
+        background-attachment: scroll;
         width: 100%;
         overflow-x: hidden; /* Previene desbordamiento horizontal */
     }
 
     header {
         padding: 0px;
+    }
+
+    .title-container {
+        width: 90%; /* O el ancho que quieras */
+        max-width: 400px; /* Opcional, para que no crezca de más */
+        margin: 0 auto; /* Esto lo centra */
+        padding: 10px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px; /* si quieres seguir teniendo esquinas redondeadas */
     }
 
     .menu-toggle {
@@ -400,6 +595,28 @@ footer {
         top: 55%; /* Ajusta si quieres más arriba/abajo en móvil */
     }
 
+    /* Quiénes somos */
+    
+    .content-section {
+        padding: 20px 10px; /* Menos padding para pantallas pequeñas */
+    }
+    
+    .mision-vision, 
+    .hero-images {
+        max-width: 100%;
+    }
+
+    .hero-images img {
+        max-width: 100%; /* Ahora sí full width en celulares mini */
+        height: auto;
+    }
+
+    .mision-vision {
+        padding: 10px 0; /* Menos separación */
+        text-align: center; /* Centrar texto para que no se vea raro */
+    }
+    
+
     /* Responsivo ubicación */
 
     .ubicacion-container {
@@ -418,14 +635,11 @@ footer {
         box-sizing: border-box;
     }
     
-    .map-container {
-        width: calc(100% - 10px); /* Restar el padding */
-        margin: 0 auto; /* Centrar */
-        height: 280px;
-        min-height: 280px;
-        border-radius: 10px;
-        overflow: hidden;
-    }
+    .map-container iframe {
+        width: 100%;
+        height: 400px; /* Más alto en mobile */
+        border: 0;
+      }
     
     .info-box {
         width: calc(100% - 10px); /* Restar el padding */
@@ -467,6 +681,12 @@ footer {
 
 /* Tablets */
 @media (max-width: 768px) {
+
+    @media (max-width: 768px) {
+        body {
+          background-attachment: scroll;
+        }
+      }
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -474,6 +694,23 @@ footer {
 
     nav ul li {
         margin: 10px 0;
+    }
+
+    @media (max-width: 768px) {
+        .content-section {
+            flex-direction: column; /* Cambiamos de fila a columna */
+            align-items: center; /* Centramos los elementos */
+        }
+    
+        .mision-vision, 
+        .hero-images {
+            max-width: 100%; /* Que ocupen el 100% del ancho */
+        }
+    
+        .hero-images img {
+            max-width: 90%; /* Que no pegue a los bordes */
+            height: auto;
+        }
     }
 
     .footer-content {
