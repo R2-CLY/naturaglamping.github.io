@@ -166,18 +166,54 @@ nav ul li a:focus {
     right: 10px;
 }
 
-/* Estilos para la Ubicación */
-.ubicacion-container {
-    padding: 20px;
+/* Estilos para Domos */
+
+.hero-images-domos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
+    justify-items: center;
 }
 
-.ubicacion-hero h2 {
+.hero-images-domos img {
+    width: 100%;
+    max-width: 450px; /* Tamaño similar a tus cuadros de referencia */
+    height: 300px; /* Altura fija para mantener proporción */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.hero-images-domos img:hover {
+    transform: scale(1.02);
+}
+
+
+/* Estilos para la Ubicación */
+.ubicacion-container {
+
+    font-family: Poppins, sans-serif;
+    text-align: center;
+    padding: 0px 20px;
+/*
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;*/
+}
+
+.ubicacion-hero{
+    font-family: Poppins, sans-serif;
+    text-align: center;
+    padding: 30px 20px;
+/*
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 30px;
-    color: #333;
+    color: #333;*/
 }
 
 .ubicacion-content {
@@ -267,9 +303,6 @@ main.quienes-somos {
     margin: 0;
 }
 
-    
-
-
 .quienes-somos h1 {
     color: #333;
     font-size: 1.5rem;
@@ -333,7 +366,6 @@ main.quienes-somos {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 
 
 /* Estilos para el modal */
@@ -615,7 +647,20 @@ footer {
         padding: 10px 0; /* Menos separación */
         text-align: center; /* Centrar texto para que no se vea raro */
     }
+
+    /* Responsivo Domos */
     
+    .hero-images-domos {
+        grid-template-columns: 1fr; /* Una sola columna en móviles */
+        padding: 10px;
+        gap: 1rem;
+    }
+    
+    .hero-images-domos img {
+        height: 250px; /* Altura ligeramente menor en móviles */
+        max-width: 100%; /* Ocupa todo el ancho disponible */
+    }
+
 
     /* Responsivo ubicación */
 
@@ -696,7 +741,14 @@ footer {
         margin: 10px 0;
     }
 
-    @media (max-width: 768px) {
+    .domos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .domo-card {
+        width: 90%;
+    }
         .content-section {
             flex-direction: column; /* Cambiamos de fila a columna */
             align-items: center; /* Centramos los elementos */
@@ -711,7 +763,7 @@ footer {
             max-width: 90%; /* Que no pegue a los bordes */
             height: auto;
         }
-    }
+
 
     .footer-content {
         flex-direction: column;
