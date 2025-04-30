@@ -92,6 +92,83 @@ nav ul li a:focus {
     color: #333;
 }
 
+.hero-images-domos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px; /* Aumenté el gap de 20px a 30px */
+    max-width: 1000px;
+    margin: 40px auto; /* Añadí margen superior e inferior */
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding: 20px;
+    padding-top: 15px;
+}
+
+.domo-item {
+    position: relative;
+    border-radius: 15px; /* Aumenté el border-radius */
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    transition: all 0.3s ease;
+    aspect-ratio: 1/1;
+    margin: 10px; /* Margen adicional para más espacio */
+}
+
+.domo-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más grande al hover */
+}
+
+.domo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.domo-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.75); /* Fondo más oscuro para mejor legibilidad */
+    color: white;
+    padding: 20px; /* Más padding */
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(5px); /* Efecto de desenfoque moderno */
+}
+
+.domo-item:hover .domo-details {
+    transform: translateY(0);
+}
+
+.detail-icon {
+    width: 35px; /* Icono un poco más grande */
+    height: 35px;
+    margin-bottom: 15px; /* Más espacio debajo del icono */
+}
+
+.detail-list {
+    padding: 0;
+    margin-left: 1.2em; /* Añadimos un margen izquierdo para los marcadores */
+    list-style: none; /* Quitamos los marcadores estándar */
+}
+
+.detail-list li::before {
+    content: "•"; /* Añadimos el punto/disco como marcador */
+    color: #dfc675; /* Color rojo para el marcador */
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em; /* Ajustamos la posición para alinearlo correctamente */
+}
+
+.detail-list li {
+    margin-bottom: 8px; /* Más espacio entre items */
+    font-size: 15px; /* Texto un poco más grande */
+    line-height: 1.5; /* Mejor interlineado */
+}
+
 .hero-images {
     display: flex;
     justify-content: center;
@@ -267,9 +344,6 @@ main.quienes-somos {
     margin: 0;
 }
 
-    
-
-
 .quienes-somos h1 {
     color: #333;
     font-size: 1.5rem;
@@ -333,7 +407,6 @@ main.quienes-somos {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 
 
 /* Estilos para el modal */
@@ -595,6 +668,70 @@ footer {
         top: 55%; /* Ajusta si quieres más arriba/abajo en móvil */
     }
 
+    /* Domos */
+
+    .hero-images-domos {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 95%;
+        margin: 25px auto;
+        padding: 10px;
+        margin-bottom: 0px;
+
+    }
+    
+    .domo-item {
+        margin: 0;
+        border-radius: 10px;
+    }
+    
+    .domo-details {
+        padding: 12px;
+        backdrop-filter: blur(3px); /* Reducimos el desenfoque para mejor rendimiento */
+    }
+    
+    .detail-icon {
+        width: 25px; /* Icono más pequeño */
+        height: 25px;
+        margin-bottom: 8px;
+    }
+    
+    .detail-list, 
+    .detail-list ul {
+        text-align: left;
+        padding-left: 0;
+    }
+    
+    .detail-list li,
+    .detail-list ul li {
+        padding-left: 1em;
+        text-align: center;
+        font-size: 12px;
+    }
+    
+    .detail-list > li::before {
+        
+        left: 0;
+        color: #dfc675; 
+    }
+    
+    .detail-list ul li::before {
+        
+        left: 0;
+    }
+
+    /* color: #dfc675; Color dorado para los puntos */
+    
+    /* Scroll personalizado */
+    .detail-list::-webkit-scrollbar {
+        width: 3px;
+    }
+    
+    .detail-list::-webkit-scrollbar-thumb {
+        background-color: #dfc675;
+        border-radius: 3px;
+    }
+    
     /* Quiénes somos */
     
     .content-section {
@@ -682,11 +819,15 @@ footer {
 /* Tablets */
 @media (max-width: 768px) {
 
-    @media (max-width: 768px) {
-        body {
-          background-attachment: scroll;
-        }
-      }
+     body {
+     background-attachment: scroll;
+     }
+
+     .hero-images-domos {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+      
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -696,22 +837,20 @@ footer {
         margin: 10px 0;
     }
 
-    @media (max-width: 768px) {
-        .content-section {
+    .content-section {
             flex-direction: column; /* Cambiamos de fila a columna */
             align-items: center; /* Centramos los elementos */
         }
     
-        .mision-vision, 
-        .hero-images {
-            max-width: 100%; /* Que ocupen el 100% del ancho */
+    .mision-vision, 
+    .hero-images {
+        max-width: 100%; /* Que ocupen el 100% del ancho */
         }
     
-        .hero-images img {
-            max-width: 90%; /* Que no pegue a los bordes */
-            height: auto;
+    .hero-images img {
+        max-width: 90%; /* Que no pegue a los bordes */
+        height: auto;
         }
-    }
 
     .footer-content {
         flex-direction: column;
