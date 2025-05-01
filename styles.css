@@ -582,7 +582,111 @@ footer {
 /* =============== INICIA CONFIGURACIÓN RESPONSIVA ===================== */
 
 /* Móviles pequeños */
-@media (max-width: 480px) {
+@media (max-width: 360px) {
+    /* Ajustes generales */
+    body {
+        font-size: 14px;
+    }
+    
+    /* Header y navegación */
+    .menu-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        top: 8px;
+        left: 15px;
+    }
+    
+    nav ul {
+        width: 180px;
+        top: 50px;
+    }
+    
+    /* Contenedor de título */
+    .title-container {
+        padding: 8px 15px;
+    }
+    
+    .title-container h2 {
+        font-size: 24px;
+    }
+    
+    /* Ajustes específicos para domos */
+    .hero-images-domos {
+        gap: 15px;
+        padding: 5px;
+        margin-top: 15px;
+    }
+    
+    .domo-details {
+        padding: 8px;
+        backdrop-filter: blur(2px);
+    }
+    
+    .detail-icon {
+        width: 20px;
+        height: 20px;
+        margin-bottom: 5px;
+    }
+    
+    .detail-list li,
+    .detail-list ul li {
+        font-size: 11px;
+        line-height: 1.3;
+        padding-left: 0.8em;
+        margin-bottom: 4px;
+    }
+    
+    .detail-list {
+        max-height: 120px; /* Altura reducida para pantallas pequeñas */
+    }
+    
+    /* Ajustes para el contenido de "Quiénes Somos" */
+    .card {
+        padding: 15px;
+    }
+    
+    .card h1 {
+        font-size: 1.4rem;
+    }
+    
+    /* Ubicación */
+    .map-container iframe {
+        height: 300px;
+    }
+    
+    .info-box {
+        padding: 10px;
+    }
+    
+    /* Footer */
+    .footer-section h4 {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    
+    .footer-section p {
+        font-size: 11px;
+    }
+    
+    .social-icons a img {
+        width: 25px;
+        height: 23px;
+    }
+}
+
+    /* Ajustes específicos para OPPO */
+    @media (max-height: 640px) {
+        .hero-images-domos {
+            margin-top: 10px;
+        }
+        
+        .domo-item {
+            margin-bottom: 5px;
+        }
+    }
+
+    @media (max-width: 480px) {
 
     body, html {
         background-attachment: scroll;
