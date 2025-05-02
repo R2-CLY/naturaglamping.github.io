@@ -94,14 +94,11 @@ nav ul li a:focus {
 
 .hero-images-domos {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px; /* Aumenté el gap de 20px a 30px */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en escritorio → 6 imágenes en 2 filas */
+    gap: 30px;
     max-width: 1000px;
-    margin: 40px auto; /* Añadí margen superior e inferior */
-    margin-top: 20px;
-    margin-bottom: 0px;
+    margin: 40px auto;
     padding: 20px;
-    padding-top: 15px;
 }
 
 .domo-details {
@@ -332,16 +329,16 @@ nav ul li a:focus {
 }
 
 .gallery-row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px; /* Nuevo: sustituye margin-right manual */
-    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 0px;
+
 }
 
 .gallery-item {
     position: relative;
-    width: 30%; /* 3 items por fila */
+    width: 100%; /* 3 items por fila */
     margin-bottom: 20px; /* Espacio adicional abajo de cada item */
     overflow: hidden;
     border-radius: 10px;
@@ -350,17 +347,16 @@ nav ul li a:focus {
     aspect-ratio: 1/1;
 }
 
-/* Espacio específico entre imágenes 
-.gallery-item:not(:last-child) {
-    margin-right: 3%; /* Espacio entre imágenes horizontal */
-/*}*/
-
 .gallery-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
+    -webkit-transition: transform 0.5s ease;
+    -moz-transition: transform 0.5s ease;
+    -ms-transition: transform 0.5s ease;
+    -o-transition: transform 0.5s ease;
 }
 
 .gallery-caption {
@@ -376,6 +372,10 @@ nav ul li a:focus {
     transition: transform 0.3s ease;
 }
 
+.gallery-caption::marker {
+    color: #dfc675;
+}
+
 .gallery-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
@@ -388,6 +388,12 @@ nav ul li a:focus {
 .gallery-item:hover .gallery-caption {
     transform: translateY(0);
 }
+
+.gallery-item {
+    width: calc(33.333% - 20px);
+}
+
+
 
 /* Estilos para la página Más sobre nosotros */
 
@@ -995,15 +1001,28 @@ footer {
         align-items: center;
         gap: 20px;
         margin-bottom: 20px;
+        width: 100%;
+        max-width: 500px; /* o 1000px en desktop */
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 16px; /* padding lateral para que no se pegue al borde */
     }
 
     .gallery-item {
-        width: 90%;
-        margin-bottom: 0;
-        aspect-ratio: 1/1;
+        position: relative; /* Necesario para que .gallery-caption se posicione bien */
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
         border-radius: 15px;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         transition: all 0.3s ease;
+    }
+
+    .gallery-img {
+        width: 100%;
+        height: 100%; /* Esto es crucial */
+        object-fit: cover;
+        display: block;
     }
 
     .gallery-item:hover {
@@ -1011,25 +1030,16 @@ footer {
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
-    .gallery-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
     .gallery-caption {
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
-        background: rgba(0, 0, 0, 0.75);
-        color: white;
-        padding: 15px;
-        transform: translateY(100%);
-        transition: transform 0.3s ease;
-        backdrop-filter: blur(5px);
-        text-align: center;
     }
+
+    .gallery-caption::marker {
+    color: #dfc675;
+}
 
     .gallery-item:hover .gallery-caption {
         transform: translateY(0);
@@ -1044,6 +1054,12 @@ footer {
     .gallery-item:not(:last-child) {
         margin-right: 0;
         margin-bottom: 20px;
+    }
+
+        .detail-list > li::before {
+        
+        left: 0;
+        color: #dfc675; 
     }
 
     /* Domos */
