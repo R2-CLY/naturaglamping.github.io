@@ -4,6 +4,7 @@ const slides = document.querySelectorAll('.slide');
 let slideInterval;
 
 function showSlide(index) {
+
     // Oculta todas las slides
     slides.forEach(slide => {
         slide.classList.remove('active');
@@ -35,43 +36,59 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Creación de --- efecto MENÚ HAMBURGUESA ---
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navUl = document.querySelector('nav ul');
-
-    menuToggle.addEventListener('click', () => {
-        navUl.classList.toggle('show');
-        menuToggle.classList.toggle('open');
+    // Menú Hamburguesa - Versión simplificada
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navUl = document.querySelector('nav ul');
+        
+        if(menuToggle && navUl) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navUl.classList.toggle('show');
+                
+                // Elimina la clase 'open' que podría estar causando conflicto
+                this.textContent = navUl.classList.contains('show') ? '✖' : '☰';
+            });
+            
+            document.addEventListener('click', function(e) {
+                if(!navUl.contains(e.target) ){
+                    navUl.classList.remove('show');
+                    menuToggle.textContent = '☰';
+                }
+            });
+        }
     });
+    // Ajustes A
 
-    // Mostrar modal al cargar la página
+ // modal mensaje alerta
     document.addEventListener('DOMContentLoaded', function() {
         const modal = document.getElementById('welcomeModal');
         const closeBtn = document.querySelector('.close-modal');
         const acceptBtn = document.getElementById('acceptBtn');
         
-        // Mostrar modal
-        modal.style.display = 'flex';
-        
-        // Cerrar modal al hacer clic en X o botón Aceptar
-        closeBtn.addEventListener('click', function() {
+        // Función para cerrar el modal
+        function closeModal() {
             modal.style.display = 'none';
-        });
+            document.body.style.overflow = 'auto'; // Restaura el scroll
+        }
         
-        acceptBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
+        // Función para abrir el modal
+        function openModal() {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Previene scroll
+        }
+        
+        // Mostrar modal al cargar
+        openModal();
+        
+        // Event listeners
+        closeBtn.addEventListener('click', closeModal);
+        acceptBtn.addEventListener('click', closeModal);
         
         // Cerrar al hacer clic fuera del modal
         window.addEventListener('click', function(event) {
             if (event.target === modal) {
-                modal.style.display = 'none';
+                closeModal();
             }
-        });
-    });
-
-    document.querySelectorAll('.domo-item').forEach(item => {
-        item.addEventListener('click', () => {
-            item.classList.toggle('active');
         });
     });
