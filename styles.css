@@ -869,6 +869,82 @@ footer {
     .card h1 {
         font-size: 1.4rem;
     }
+
+     /* Domos */
+
+     .hero-images-domos {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 0 8px;
+        margin-top: 5px;
+    }
+
+    /* Cada item de domo */
+    .domo-item {
+        width: 100%;
+        margin: 0 auto 12px;
+        border-radius: 8px;
+        aspect-ratio: 1/1.1; /* Ligera modificación de proporción */
+    }
+
+    /* Detalles que aparecen al hover */
+    .domo-details {
+        padding: 8px 10px;
+        transform: translateY(100%);
+        backdrop-filter: blur(3px);
+    }
+
+    /* Lista de características */
+    .detail-list {
+        max-height: 110px;
+        overflow-y: auto;
+        padding-right: 3px;
+        margin: 5px 0 0;
+    }
+
+    /* Items de la lista */
+    .detail-list li {
+        font-size: 11px;
+        line-height: 1.4;
+        margin-bottom: 6px;
+        padding-left: 15px;
+        position: relative;
+    }
+
+    /* Puntos decorativos */
+    .detail-list li::before {
+        content: "•";
+        color: #dfc675;
+        position: absolute;
+        left: 5px;
+        font-size: 14px;
+    }
+
+    /* Títulos de sección */
+    .detail-list p {
+        font-size: 12px;
+        margin: 6px 0 4px;
+        color: #dfc675;
+        text-align: left;
+        padding-left: 5px;
+    }
+
+    /* Scrollbar personalizada */
+    .detail-list::-webkit-scrollbar {
+        width: 2px;
+    }
+    .detail-list::-webkit-scrollbar-thumb {
+        background-color: #dfc675;
+    }
+
+    /* Ajuste para el icono */
+    .detail-icon {
+        width: 20px;
+        height: 20px;
+        margin: 0 auto 5px;
+        display: block;
+    } 
+        
     
     /* Ubicación */
     .map-container iframe {
@@ -897,6 +973,8 @@ footer {
 
     /* Ajustes específicos para OPPO */
     @media (max-height: 640px) {
+    
+
         .hero-images-domos {
             margin-top: 10px;
         }
@@ -904,8 +982,69 @@ footer {
         .domo-item {
             margin-bottom: 5px;
         }
+    
+
+    /* Contenedor principal de domos */
+    .hero-images-domos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 10px;
+        max-width: 600px;
+        margin: 20px auto;
     }
 
+    /* Items individuales de domo */
+    .domo-item {
+        margin: 0;
+        border-radius: 12px;
+        aspect-ratio: 1/1.05;
+    }
+
+    /* Panel de detalles al hover */
+    .domo-details {
+        padding: 12px;
+        backdrop-filter: blur(4px);
+    }
+
+    /* Lista de características */
+    .detail-list {
+        max-height: 120px;
+        padding-right: 5px;
+    }
+
+    /* Items de la lista */
+    .detail-list li {
+        font-size: 12px;
+        line-height: 1.5;
+        margin-bottom: 8px;
+        padding-left: 18px;
+    }
+
+    /* Puntos decorativos */
+    .detail-list li::before {
+        font-size: 16px;
+        left: 6px;
+    }
+
+    /* Títulos de sección */
+    .detail-list p {
+        font-size: 14px;
+        margin: 8px 0 6px;
+        padding-left: 8px;
+    }
+
+    /* Icono */
+    .detail-icon {
+        width: 25px;
+        height: 25px;
+        margin-bottom: 8px;
+    }
+
+    /* Scrollbar */
+    .detail-list::-webkit-scrollbar {
+        width: 3px;
+    }
+}
     @media (max-width: 480px) {
 
     body, html {
