@@ -789,6 +789,7 @@ body {
     padding: 0;
     max-width: 600px; /* Limita el ancho */
     margin: 0 auto; /* Centra el bloque */
+    align-items: center;
 }
 
 .contact-info li {
@@ -943,7 +944,199 @@ body {
     .menu-toggle {
         order: 2;
     }
+
+      /* =============== Booking =============== */
+    .booking-section {
+        padding: 25px 15px;
+        margin: 30px 15px;
+    }
+    
+    .booking-title {
+        font-size: 1.8rem;
+    }
+    
+    .booking-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Ocultar la tabla tradicional en móvil */
+    .booking-table-container {
+        overflow: visible;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    
+    .booking-table {
+        border: none;
+        min-width: auto;
+        width: 100%;
+        display: block;
+    }
+    
+    .booking-table thead {
+        display: none; /* Ocultar encabezados en móvil */
+    }
+    
+    .booking-table tbody {
+        display: block;
+        width: 100%;
+    }
+    
+    /* Convertir cada fila en una tarjeta */
+    .booking-table tr {
+        display: block;
+        background: linear-gradient(135deg, #f8f6e8 0%, #f0e6cb 100%);
+        border: 2px solid #dfc675;
+        border-radius: 15px;
+        padding: 25px 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* Efecto decorativo en la tarjeta */
+    .booking-table tr::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #dfc675, #d4b45f, #dfc675);
+        border-radius: 15px 15px 0 0;
+    }
+    
+    /* Convertir cada celda en un campo con etiqueta */
+    .booking-table td {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 0;
+        border: none;
+        background: transparent;
+        position: relative;
+        margin-bottom: 15px;
+    }
+    
+    .booking-table td:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Agregar etiquetas antes de cada campo */
+    .booking-table td:nth-child(1)::before { content: "📅 Fecha de Llegada"; }
+    .booking-table td:nth-child(2)::before { content: "📅 Fecha de Salida"; }
+    .booking-table td:nth-child(3)::before { content: "👥 Adultos"; }
+    .booking-table td:nth-child(4)::before { content: "👶 Niños"; }
+    .booking-table td:nth-child(5)::before { content: "🔍 Consultar"; }
+    
+    .booking-table td::before {
+        font-size: 16px;
+        font-weight: 600;
+        color: #5a4a3a;
+        margin-bottom: 8px;
+        text-align: center;
+        width: 100%;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Ajustar inputs para móvil */
+    .date-input {
+        width: 200px;
+        font-size: 16px;
+        padding: 12px 15px;
+        border-radius: 12px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(5px);
+    }
+    
+    .number-input {
+        width: 80px;
+        font-size: 18px;
+        padding: 12px;
+        border-radius: 12px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(5px);
+    }
+    
+    /* Botón mejorado para móvil */
+    .availability-btn {
+        padding: 15px 30px;
+        font-size: 16px;
+        font-weight: 700;
+        border-radius: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: linear-gradient(135deg, #dfc675, #d4b45f);
+        color: #5a4a3a;
+        box-shadow: 0 6px 20px rgba(223, 198, 117, 0.4);
+        min-width: 200px;
+    }
+    
+    .availability-btn:hover {
+        background: linear-gradient(135deg, #d4b45f, #c9a952);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(223, 198, 117, 0.6);
+    }
+    
+    /* Animación suave para las tarjetas */
+    .booking-table tr {
+        animation: slideUpCard 0.6s ease forwards;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    
+    @keyframes slideUpCard {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
 }
+
+/* Media Query adicional para móviles */
+@media (max-width: 600px) {
+   .booking-section {
+        padding: 20px 10px;
+        margin: 20px 10px;
+    }
+    
+    .booking-title {
+        font-size: 1.5rem;
+    }
+    
+    .booking-table tr {
+        padding: 20px 15px;
+        margin-bottom: 15px;
+    }
+    
+    .date-input {
+        width: 180px;
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+    
+    .number-input {
+        width: 70px;
+        font-size: 16px;
+        padding: 10px;
+    }
+    
+    .availability-btn {
+        padding: 12px 25px;
+        font-size: 14px;
+        min-width: 180px;
+    }
+    
+    .booking-table td::before {
+        font-size: 14px;
+    }
+
+    }
 
 
 a.skip-link {
