@@ -402,6 +402,8 @@ body {
     background-color: rgba(26, 25, 25, 0.9); /* Más transparente: de 0.9 a 0.7 */
     margin: 40px 0;
     backdrop-filter: blur(3px); /* Añadido: efecto de desenfoque para mejor integración */
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .section-header {
@@ -473,14 +475,6 @@ body {
 }
 
 .domos-grid {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px; */
-
-
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* ← fuerza 2 columnas en escritorio */
     gap: 30px;
