@@ -1225,6 +1225,11 @@ body {
 
 /* Media Query adicional para móviles */
 @media (max-width: 600px) {
+
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+
    .booking-section {
         padding: 20px 10px;
         margin: 20px 10px;
