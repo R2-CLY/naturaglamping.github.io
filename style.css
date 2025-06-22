@@ -4,18 +4,26 @@ html, body {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    overflow-x: hidden !important;
+    overflow-x: hidden !important; /* Evitar el scroll horizontal */
 }
+
 
 .carousel-control-next,
 .carousel-control-prev {
+/* Fija los botones del carrusel en una posición específica dentro del contenedor */
   position: absolute;
+
+   /* Asegura que estos botones estén por encima de otros elementos del carrusel */
   z-index: 2;
+  /* Limita el ancho de los botones para evitar que sean demasiado grandes y causen desbordamiento */
   width: 40px !important;
   height: 40px !important;
+  /* Centra verticalmente el botón respecto al alto del contenedor del carrusel */
   top: 50%;
   transform: translateY(-50%);
+/* Oculta cualquier contenido que se salga de su área asignada */
   overflow: hidden;
+  /* Evita que el botón se extienda más allá del ancho de la pantalla en dispositivos pequeños */
   max-width: 100vw;
 }
 
