@@ -7,7 +7,6 @@ html, body {
     overflow-x: hidden !important; /* Evitar el scroll horizontal */
 }
 
-
 .carousel-control-next,
 .carousel-control-prev {
 /* Fija los botones del carrusel en una posición específica dentro del contenedor */
@@ -41,7 +40,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-blend-mode: overlay;
-    color: #333;
+    color: #333333;
     font-family: 'Poppins', 'Arial', sans-serif;
     min-height: 100vh;
     line-height: 1.6;
@@ -54,7 +53,7 @@ body {
 
 /* =============== HEADER Y NAVEGACIÓN =============== */
 .header-container {
-    background-color: rgba(245, 234, 195, 0.95); /* CAMBIO: Añadir transparencia */
+    background-color: rgba(86, 50, 63, 0.90); /* CAMBIO: Añadir transparencia */
     padding: 15px 0;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: sticky;
@@ -125,17 +124,9 @@ body {
 }
 
 .nav-link {
-    /* text-decoration: none;
-    color: #5a3c3a;
-    font-weight: 600;
-    font-size: 20px;
-    padding: 8px 0;
-    position: relative;
-    transition: all 0.3s ease; */
-
 
     text-decoration: none;
-    color: #5a3c3a;
+    color: #545a3a;
     font-weight: 600;
     font-size: 20px;
     padding: 8px 0;
