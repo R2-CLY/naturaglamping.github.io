@@ -87,7 +87,7 @@ body {
     background: none;
     border: none;
 
-    color: #5a443a;
+    color: #e2c698;
     cursor: pointer;
     padding: 10px;
     z-index: 1000; /* Tenía 1001 */
@@ -299,8 +299,8 @@ body {
     padding: 15px 40px !important;
     font-size: 1.2rem !important;
     font-weight: 600 !important;
-    background-color: #dfc675 !important;
-    color: #5a4a3a !important;
+    background-color: #684753 !important;
+    color: #cdb159 !important;
     border: none !important;
     border-radius: 12px !important;
     transition: all 0.3s ease-in-out !important;
@@ -457,7 +457,7 @@ body {
 
 /* Tarjetas de domos con fondo más transparente */
 .domo-card {
-    background: #e9da9e; /* Cambio: de sólido a 85% transparente */
+    background: #e2c698; /* Cambio: de sólido a 85% transparente */
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Mejorado: sombra más pronunciada */
@@ -483,6 +483,10 @@ body {
     background: #b4a967; /* Al hover, se vuelve menos transparente */
 }
 
+.domo-card:hover .domo-image img {
+    transform: scale(1.05);
+}
+
 .domo-image {
     height: 220px;
     overflow: hidden;
@@ -493,10 +497,6 @@ body {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
-}
-
-.domo-card:hover .domo-image img {
-    transform: scale(1.05);
 }
 
 .domo-content {
@@ -522,14 +522,14 @@ body {
 /* Características/features de los iconos */
 .feature-icon {
     margin-right: 10px;
-    color: #696202; /* Cambio: color más vibrante para los iconos */
+    color: #56323f; /* Cambio: color más vibrante para los iconos */
     font-size: 1.1em; /* Añadido: iconos ligeramente más grandes */
 }
 
 /* Botón mejorado */
 .domo-btn {
-    background-color: #dfc675; /* Cambio: color más vibrante */
-    color: #3a3401; /* Cambio: texto blanco para mejor contraste */
+    background-color: #684753; /* Cambio: color más vibrante */
+    color: #e2c698; /* Cambio: texto blanco para mejor contraste */
     border: none;
     padding: 12px 25px; /* Aumentado: botón más grande */
     border-radius: 8px; /* Aumentado: bordes más redondeados */
@@ -545,10 +545,10 @@ body {
 }
 
 .domo-btn:hover {
-    background-color: #d8b236; /* Color más oscuro al hover */
-    color: #fff;
+    background-color: #e2c698; /* Color más oscuro al hover */
+    color: #56323f;
     transform: translateY(-3px);
-    box-shadow: 0 2px 2px rgba(245, 220, 2, 0.4);
+    box-shadow: 0 2px 2px rgba(75, 28, 42, 0.4);
 }
 
 /* =============== SECCIÓN DE BOOKING MEJORADA =============== */
@@ -594,8 +594,8 @@ body {
 }
 
 .booking-table th {
-    background-color: #f0e6cb;
-    color: #5a4a3a;
+    background-color: #56323f;
+    color: #e2c698;
     font-weight: 600;
     padding: 15px;
     text-align: center;
@@ -611,7 +611,7 @@ body {
 
 /* Estilos para los inputs de fecha */
 .date-input {
-    border: 2px solid #dfc675;
+    border: 2px solid #56323f;
     border-radius: 8px;
     padding: 8px 12px;
     font-size: 14px;
@@ -635,7 +635,7 @@ body {
 
 /* Estilos para los inputs de número */
 .number-input {
-    border: 2px solid #dfc675;
+    border: 2px solid #56323f;
     border-radius: 8px;
     padding: 8px 12px;
     font-size: 14px;
@@ -704,19 +704,38 @@ body {
     }
 
     .galeria-card {
-      position: relative;
+      /* position: relative;
       overflow: hidden;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      cursor: pointer;
+      cursor: pointer; */
+
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    background-color: #1a1a1a; /* Fondo consistente */
+    display: flex;
+    flex-direction: column;
+    height: 450px; /* ← Establece una altura fija */
+    min-height: 450px;
     }
 
     .galeria-card img {
-      width: 100%;
+      /* width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.4s ease;
-      display: block;
+      display: block; */
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: 100%;
+    flex-grow: 1;
+    transition: transform 0.4s ease;
+    display: block;
     }
 
     .galeria-card:hover img {
@@ -735,6 +754,8 @@ body {
       justify-content: center;
       align-items: center;
       padding: 25px;
+
+      /*overflow-y: auto;  permite scroll si el contenido excede */
     }
 
     .galeria-card:hover .galeria-overlay,
@@ -835,7 +856,7 @@ body {
 /* =============== FOOTER CENTRADO =============== */
 
 .footer {
-    background: linear-gradient(to right, #2c3e50, #4a5d6e);
+    background: linear-gradient(to right, #56323f, rgb(77, 70, 36));
     color: #fff;
     padding: 50px 0 20px;
     margin-top: auto;
@@ -1069,7 +1090,12 @@ body {
 
       .galeria-grid {
         grid-template-columns: repeat(2, 1fr);
+        
       }
+
+      .galeria-card {
+        height: 400px;
+    }
 
       /* =============== Booking =============== */
     .booking-section {
@@ -1111,7 +1137,7 @@ body {
     /* Convertir cada fila en una tarjeta */
     .booking-table tr {
         display: block;
-        background: linear-gradient(135deg, #ebe5c0 0%, #f4d789 100%);
+        background: linear-gradient(135deg, #e2c698 0%, #97858c 100%);
         border: 2px solid #dfc675;
         border-radius: 15px;
         padding: 25px 20px;
@@ -1239,6 +1265,34 @@ body {
 
     .galeria-grid {
         grid-template-columns: 1fr;
+    }
+
+      .galeria-card {
+    height: 380px;
+    }
+
+    .domos-grid {
+        grid-template-columns: 1fr; /* ← solo una columna en pantallas pequeñas */
+    }
+
+    .domo-card {
+        height: auto; /* Permitir que la tarjeta se ajuste al contenido */
+    }
+
+    .domo-image {
+        height: 200px; /* Ajustar la altura de la imagen */
+    }
+
+    .domo-content {
+        padding: 15px;
+    }
+
+    .domo-title {
+        font-size: 1.2rem;
+    }
+
+    .domo-description {
+        font-size: 0.9rem;
     }
 
    .booking-section {
