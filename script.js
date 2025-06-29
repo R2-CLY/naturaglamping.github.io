@@ -194,33 +194,71 @@ function animateOnScroll() {
 window.addEventListener('scroll', animateOnScroll);
 window.addEventListener('load', animateOnScroll);
 
-// =============== SMOOTH SCROLL PARA ENLACES INTERNOS ===============
-document.addEventListener('DOMContentLoaded', function() {
-    // Seleccionar todos los enlaces que apuntan a anclas internas
-    const internalLinks = document.querySelectorAll('a[href^="#"]');
+// // =============== SMOOTH SCROLL PARA ENLACES INTERNOS ===============
+// document.addEventListener('DOMContentLoaded', function() {
+//     // Seleccionar todos los enlaces que apuntan a anclas internas
+//     const internalLinks = document.querySelectorAll('a[href^="#"]');
     
-    internalLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
+//     internalLinks.forEach(link => {
+//         link.addEventListener('click', function(e) {
+//             const href = this.getAttribute('href');
             
-            // Solo aplicar smooth scroll si el enlace apunta a un elemento existente
+//             // Solo aplicar smooth scroll si el enlace apunta a un elemento existente
+//             if (href !== '#' && href.length > 1) {
+//                 const targetElement = document.querySelector(href);
+                
+//                 if (targetElement) {
+//                     e.preventDefault();
+                    
+//                     // Obtener altura del header para ajustar el scroll
+//                     const headerHeight = document.querySelector('.header-container').offsetHeight;
+//                     const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                    
+//                     window.scrollTo({
+//                         top: targetPosition,
+//                         behavior: 'smooth'
+//                     });
+//                 }
+//             }
+//         });
+//     });
+// });
+
+// =============== SMOOTH SCROLL ROBUSTO PARA ENLACES INTERNOS ===============
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.addEventListener('click', function(e) {
+        const link = e.target.closest('a[href^="#"]');
+
+        if (link) {
+            const href = link.getAttribute('href');
+
             if (href !== '#' && href.length > 1) {
                 const targetElement = document.querySelector(href);
-                
+                    console.log('Clic detectado en enlace interno:', href); // se agrega para atrapar el error
+
                 if (targetElement) {
                     e.preventDefault();
-                    
-                    // Obtener altura del header para ajustar el scroll
-                    const headerHeight = document.querySelector('.header-container').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - headerHeight - 20;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+
+                    // const header = document.querySelector('.header-container');
+                    // const headerHeight = header ? header.offsetHeight : 0;
+
+                    // const targetPosition =
+                    //     targetElement.getBoundingClientRect().top +
+                    //     window.pageYOffset -
+                    //     headerHeight -
+                    //     20;
+
+                    // window.scrollTo({
+                    //     top: targetPosition,
+                    //     behavior: 'smooth'
+                    // });
+                    targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
                 }
             }
-        });
+        }
     });
 });
 
