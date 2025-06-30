@@ -9,8 +9,7 @@
 // app.get('/', (req, res) => {
 //   res.send('Servidor de reservas funcionando 🚀');
 // });
-
-// // Arrancar el servidor
+  
 // app.listen(PORT, () => {
 //   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 // });
