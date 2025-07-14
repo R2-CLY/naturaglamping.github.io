@@ -92,14 +92,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // =============== RESTO DEL CÓDIGO ORIGINAL SIN CAMBIOS ===============
 // =============== FUNCIONALIDAD DE BOOKING ===============
-function checkAvailability() {
+async function checkAvailability() {
     const checkinDate = document.getElementById('checkin-date').value;
     const checkoutDate = document.getElementById('checkout-date').value;
     const adults = document.getElementById('adults').value;
     const children = document.getElementById('children').value;
     const messageDiv = document.getElementById('availabilityMessage');
 
-    // Validaciones básicas
     if (!checkinDate || !checkoutDate) {
         showMessage('Por favor selecciona las fechas de llegada y salida.', 'error');
         return;
@@ -119,12 +118,26 @@ function checkAvailability() {
         return;
     }
 
-    // Calcular noches
-    const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
-    const totalGuests = parseInt(adults) + parseInt(children);
+    // ✅ CONSULTA AL BACKEND
+    try {
+        const response = await fetch('/api/disponibilidad', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ checkin: checkinDate, checkout: checkoutDate })
+        });
 
-    // Crear mensaje de WhatsApp
-    const message = `¡Hola! Me interesa hacer una reservación en Natura Glamping con los siguientes detalles:
+        const data = await response.json();
+
+        if (!data.disponible) {
+            showMessage('No hay disponibilidad para las fechas seleccionadas.', 'error');
+            return;
+        }
+
+        // 🔁 Si hay disponibilidad, prepara mensaje de WhatsApp
+        const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
+        const totalGuests = parseInt(adults) + parseInt(children);
+
+        const message = `¡Hola! Me interesa hacer una reservación en Natura Glamping con los siguientes detalles:
 
 📅 *Fechas:*
 • Llegada: ${formatDate(checkin)}
@@ -140,16 +153,19 @@ function checkAvailability() {
 
 ¡Gracias!`;
 
-    // Codificar mensaje para URL
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/522282406341?text=${encodedMessage}`;
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappURL = `https://wa.me/522282406341?text=${encodedMessage}`;
 
-    // Mostrar mensaje de éxito y redirigir
-    showMessage(`Consulta generada exitosamente. Serás redirigido a WhatsApp...`, 'success');
-    
-    setTimeout(() => {
-        window.open(whatsappURL, '_blank');
-    }, 2000);
+        showMessage(data.mensaje + ' Serás redirigido a WhatsApp...', 'success');
+
+        setTimeout(() => {
+            window.open(whatsappURL, '_blank');
+        }, 2000);
+
+    } catch (error) {
+        console.error('Error al consultar disponibilidad:', error);
+        showMessage('Error al verificar disponibilidad. Intenta más tarde.', 'error');
+    }
 }
 
 // Función para mostrar mensajes
