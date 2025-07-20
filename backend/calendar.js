@@ -97,3 +97,4 @@ async function getAvailability(auth, calendarId, timeMin, timeMax) {
 }
 
 module.exports = { authorize, getAvailability };
+}
