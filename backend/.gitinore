@@ -1,6 +1,8 @@
 # Node.js
 node_modules/
 .env
+client_secret.json
+token.json
 
 # Logs
 npm-debug.log*
