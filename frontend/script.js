@@ -142,13 +142,18 @@ async function checkAvailability() {
     const checkinFormateado = formatearFecha(checkin);
     const checkoutFormateado = formatearFecha(checkout);
 
+    // Detectar si estamos en localhost o en producción
+    const isLocalhost = window.location.hostname === 'localhost';
+    const API_URL = isLocalhost
+    ? 'http://localhost:3000'
+    : 'https://backend-ng-wfvh.onrender.com';
+
     try {
-        const response = await fetch('http://localhost:3000/api/disponibilidad', {
+        const response = await fetch(`${API_URL}/api/disponibilidad`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ checkin, checkout })
         });
-
         const result = await response.json();
         console.log('Respuesta del backend:', result);
 
