@@ -50,6 +50,7 @@ async function authorize() {
   } else {
     throw new Error('No se encontró token.json y no se puede generar automáticamente en entorno no interactivo.');
   }
+}
 
 // Si no existe token.json, lanza una URL para generar uno nuevo
 function getNewToken(oAuth2Client) {
@@ -97,4 +98,3 @@ async function getAvailability(auth, calendarId, timeMin, timeMax) {
 }
 
 module.exports = { authorize, getAvailability };
-}
