@@ -7,6 +7,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const TOTAL_DOMOS = 4;
 
+const cors = require('cors');
+
+app.use(cors());
 app.use(bodyParser.json());
 
 function formatearFecha(date) {

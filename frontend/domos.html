@@ -130,8 +130,6 @@
                 <p class="booking-subtitle" style="color: #ffffff !important;">Es momento de reconéctarte contigo mismo</p>
             </div>
             
-            <!-- <h2>Conocer Ubicación</h2> -->
-            
             <div class="booking-table-container">
                 <table class="booking-table">
                     <thead>
@@ -163,7 +161,7 @@
                                     id="adults"
                                     name="adults"
                                     min="1" 
-                                    max="10" 
+                                    max="6" 
                                     value="2">
                             </td>
                             <td>
@@ -172,7 +170,7 @@
                                     id="children"
                                     name="children"
                                     min="0" 
-                                    max="10" 
+                                    max="6" 
                                     value="0">
                             </td>
                             <td>
@@ -186,8 +184,28 @@
             </div>
 
             <div class="availability-message" id="availabilityMessage"></div>
-        </section>         
+        </section>
 
+        <!-- MODAL DE DISPONIBILIDAD -->
+        <div id="availabilityModal" class="modal-container hidden">
+            <div class="modal-content">
+                <button class="close-x" onclick="closeModal()">×</button>
+                <div class="modal-body">
+                <p id="modalAvailabilityMessage" class="modal-message">
+                    <!-- Aquí se inserta el mensaje -->
+                </p>
+                <div id="availabilityDates"></div>
+                    <div class="modal-actions">
+                        <a id="whatsappBtn"
+                        href="#"
+                        target="_blank" 
+                        class="whatsapp-btn">
+                        Quiero ser atendido
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <!-- WhatsApp flotante -->
     <div class="whatsapp-float">

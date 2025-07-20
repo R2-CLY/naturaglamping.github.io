@@ -118,7 +118,7 @@
                             <li class="feature-item"><i class="fas fa-bath feature-icon"></i> Baño privado</li>
                             <li class="feature-item"><i class="fas fa-umbrella-beach feature-icon"></i> Terraza privada</li>
                         </ul>
-                        <a href="#" class="domo-btn">Ver más</a>
+                        <a href="domos.html" class="domo-btn">Ver más</a>
                     </div>
                 </div>
                 
@@ -135,7 +135,7 @@
                             <li class="feature-item"><i class="fas fa-bath feature-icon"></i> Baño privado</li>
                             <li class="feature-item"><i class="fas fa-tree feature-icon"></i> Vista al bosque</li>
                         </ul>
-                        <a href="#" class="domo-btn">Ver más</a>
+                        <a href="domos.html" class="domo-btn">Ver más</a>
                     </div>
                 </div>
                 
@@ -149,8 +149,6 @@
                 <h1 class="booking-title">Conecta con la Naturaleza</h1>
                 <p class="booking-subtitle" style="color: #ffffff !important;">Es momento de reconéctarte contigo mismo</p>
             </div>
-            
-            <!-- <h2>Conocer Ubicación</h2> -->
             
             <div class="booking-table-container">
                 <table class="booking-table">
@@ -183,7 +181,7 @@
                                     id="adults"
                                     name="adults"
                                     min="1" 
-                                    max="10" 
+                                    max="8" 
                                     value="2">
                             </td>
                             <td>
@@ -192,7 +190,7 @@
                                     id="children"
                                     name="children"
                                     min="0" 
-                                    max="10" 
+                                    max="6" 
                                     value="0">
                             </td>
                             <td>
@@ -207,6 +205,26 @@
 
             <div class="availability-message" id="availabilityMessage"></div>
         </section> 
+
+        <!-- MODAL DE DISPONIBILIDAD -->
+        <div id="availabilityModal" class="modal-container hidden">
+            <div class="modal-content">
+                <button class="close-x" onclick="closeModal()">×</button>
+                <div class="modal-body">
+                <p id="modalAvailabilityMessage" class="modal-message">
+                    <!-- Aquí se inserta el mensaje -->
+                </p>
+                <div id="availabilityDates"></div>
+                    <div id="whatsappBtn" class="modal-actions">
+                        <a href="https://wa.me/522282406341?text=Hola,%20me%20interesa%20una%20reserva%20personalizada" 
+                        target="_blank" 
+                        class="whatsapp-btn">
+                        Quiero ser atendido
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     <!-- WhatsApp flotante -->

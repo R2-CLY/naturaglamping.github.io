@@ -53,9 +53,9 @@
         <div class="galeria-grid">
           <!-- Tarjeta de servicio 1 -->
           <div class="galeria-card" tabindex="0">
-            <img src="img/Masje1.jpg" alt="Masajes relajantes">
+            <img src="img/servicios/Masje1.jpg" alt="Masajes relajantes">
             <div class="galeria-overlay">
-                <div class="galeria-title">Masajes Naturales</div>
+                <div class="galeria-title">Masajes Relajantes</div>
                 <div class="galeria-divider"></div>
                 <div class="galeria-description">
                     Terapias relajantes rodeado de naturaleza pura, por persona o en pareja.<br><br>
@@ -67,13 +67,13 @@
                         <li class="feature-item-spa"><i class="fa-solid fa-clock"></i>&nbsp 60 minutos de servicio</li>
                     </ul>
                 </div>
-                <a href="#" class="domo-btn" tabindex="-1">Reservar ahora</a>
+               <a href="#booking-section" class="domo-btn" tabindex="-1"  data-servicio="Masajes Relajantes">Reservar ahora</a>
             </div>
           </div>
 
           <!-- Tarjeta de servicio 2 -->
           <div class="galeria-card" tabindex="0">
-            <img src="img/Holistic2.jpg" alt="Sesiones de yoga">
+            <img src="img/servicios/Holistic2.jpg" alt="Sesiones de yoga">
             <div class="galeria-overlay">
               <div class="galeria-title">Yoga al Amanecer</div>
               <div class="galeria-divider"></div>
@@ -87,26 +87,26 @@
                     <li class="feature-item-spa"><i class="fa-solid fa-clock"></i>&nbsp 60 minutos de servicio</li>
                 </ul>
               </div>
-              <a href="#" class="domo-btn" tabindex="-1">Reservar ahora</a>
+              <a href="#booking-section" class="domo-btn" tabindex="-1" data-servicio="Yoga al amanecer">Reservar ahora</a>
             </div>
           </div>
 
-          <!-- Tarjeta de servicio 3 -->
+          <!-- Tarjeta de servicio 3> -->
           <div class="galeria-card" tabindex="0">
-            <img src="img/Rafting3.jpg" alt="Hiking con invesión">
+            <img src="img/servicios/Rapidos.jpg" alt="Hiking con invesión">
             <div class="galeria-overlay">
-              <div class="galeria-title">Hiking con inversión a una cueva</div>
+              <div class="galeria-title">Actividades de aventura y ecoturismo</div>
               <div class="galeria-divider"></div>
               <div class="galeria-description">
-                Adentrate a la naturaleza, explora y conoce los senderos.<br><br>
+                Actividades como rafting, kayak y hiking con exploración de cuevas.<br><br>
                 <i class="fa-solid fa-person-hiking" style="color:#ecc02d;"></i><br><br>
                 <ul class="services-features">
                     <li class="feature-item-spa"><i class="fa-solid fa-mountain"></i>&nbsp Haking con inversión</li>
-                    <li class="feature-item-spa"><i class="fa-solid fa-compass"></i>&nbsp Rappel corto y largo</li>
+                    <li class="feature-item-spa"><i class="fa-solid fa-water"></i>&nbsp Rafting y kayak</li>
                     <li class="feature-item-spa"><i class="fa-solid fa-video"></i>&nbsp Grabación de actividad con drone (extra)</li>
                 </ul>
               </div>
-              <a href="#" class="domo-btn" tabindex="-1">Reservar ahora</a>
+              <a href="#booking-section" class="domo-btn" tabindex="-1" data-servicio="Actividades de aventura">Reservar ahora</a>
             </div>
           </div>
 
@@ -125,13 +125,13 @@
                     <li class="feature-item-spa"><i class="fas fa-map-signs"></i>&nbsp Recorridos turísticos</li>
                     </ul>
                 </div>
-                <a href="#" class="domo-btn" tabindex="-1">Reservar ahora</a>
+                <a href="#booking-section" class="domo-btn" tabindex="-1" data-servicio="Traslados y recorridos">Reservar ahora</a>
                 </div>
             </div>
 
       <!-- Tarjeta 5 -->
       <div class="galeria-card" tabindex="0">
-        <img src="img/decarion5.jpg" alt="Decoración de domos">
+        <img src="img/servicios/decarion5.jpg" alt="Decoración de domos">
         <div class="galeria-overlay">
           <div class="galeria-title">Decoraciones Especiales</div>
           <div class="galeria-divider"></div>
@@ -144,13 +144,13 @@
               <li class="feature-item-spa"><i class="fa-solid fa-candy-cane"></i>&nbsp Chocolates de cortesía</li>
             </ul>
           </div>
-          <a href="#" class="domo-btn" tabindex="-1">Reservar ahora</a>
+          <a href="#booking-section" class="domo-btn" tabindex="-1" data-servicio="Decoraciones Especiales">Reservar ahora</a>
         </div>
       </div>
 
       <!-- Tarjeta 6 -->
       <div class="galeria-card" tabindex="0">
-        <img src="img/RutCafé6.jpg" alt="Degustación de café">
+        <img src="img/servicios/RutCafé6.jpg" alt="Degustación de café">
         <div class="galeria-overlay">
           <div class="galeria-title">Degustación Artesanal</div>
           <div class="galeria-divider"></div>
@@ -163,7 +163,7 @@
               <li class="feature-item-spa"><i class="fa-solid fa-mug-hot"></i>&nbsp Cata de maridaje</li>
             </ul>
           </div>
-          <a href="#" class="domo-btn" tabindex="-1">Reservar ahora</a>
+          <a href="#booking-section" class="domo-btn" tabindex="-1" data-servicio="Ruta del café">Reservar ahora</a>
         </div>
       </div>
 
@@ -226,6 +226,92 @@
 
     </div>
     </main>
+
+            <!-- Sección de Booking -->
+        <section id="booking-section" class="booking-section fade-in">
+            <div class="booking-header">
+                <h1 class="booking-title">Conecta con la Naturaleza</h1>
+                <p class="booking-subtitle" style="color: #ffffff !important;">Es momento de reconéctarte contigo mismo</p>
+            </div>
+            
+            <!-- <h2>Conocer Ubicación</h2> -->
+            
+            <div class="booking-table-container">
+                <table class="booking-table">
+                    <thead>
+                        <tr>
+                            <th>Llegada</th>
+                            <th>Salida</th>
+                            <th>Adultos</th>
+                            <th>Niños</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="date" 
+                                    class="date-input" 
+                                    id="checkin-date"
+                                    name="checkin">
+                            </td>
+                            <td>
+                                <input type="date" 
+                                    class="date-input" 
+                                    id="checkout-date"
+                                    name="checkout">
+                            </td>
+                            <td>
+                                <input type="number" 
+                                    class="number-input" 
+                                    id="adults"
+                                    name="adults"
+                                    min="1" 
+                                    max="6" 
+                                    value="2">
+                            </td>
+                            <td>
+                                <input type="number" 
+                                    class="number-input" 
+                                    id="children"
+                                    name="children"
+                                    min="0" 
+                                    max="6" 
+                                    value="0">
+                            </td>
+                            <td>
+                                <button class="availability-btn" onclick="checkAvailability()">
+                                    Ver Disponibilidad
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="availability-message" id="availabilityMessage"></div>
+        </section>
+
+        <!-- MODAL DE DISPONIBILIDAD -->
+        <div id="availabilityModal" class="modal-container hidden">
+            <div class="modal-content">
+                <button class="close-x" onclick="closeModal()">×</button>
+                <div class="modal-body">
+                <p id="modalAvailabilityMessage" class="modal-message">
+                    <!-- Aquí se inserta el mensaje -->
+                </p>
+                <div id="availabilityDates"></div>
+                    <div class="modal-actions">
+                        <a id="whatsappBtn"
+                        href="#"
+                        target="_blank" 
+                        class="whatsapp-btn">
+                        Quiero ser atendido
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <!-- WhatsApp flotante -->
     <div class="whatsapp-float">
