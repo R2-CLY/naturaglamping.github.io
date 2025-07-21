@@ -3,25 +3,24 @@ const path = require('path');
 const { google } = require('googleapis');
 
 const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
-// const CREDENTIALS_PATH = path.join(__dirname, 'client_secret.json');
+const CREDENTIALS_PATH = path.join(__dirname, 'client_secret.json');
 const TOKEN_PATH = path.join(__dirname, 'token.json');
 
 //**************Esta opción esta habilitada únicamente para el desarrollo local**************
+//Autoriza la aplicación usando OAuth2
+async function authorize() {
+  const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH));
+  const { client_secret, client_id, redirect_uris } = credentials.web;
+  const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
 
-// Autoriza la aplicación usando OAuth2
-// async function authorize() {
-//   const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH));
-//   const { client_secret, client_id, redirect_uris } = credentials.web;
-//   const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
-
-//   if (fs.existsSync(TOKEN_PATH)) {
-//     const token = JSON.parse(fs.readFileSync(TOKEN_PATH));
-//     oAuth2Client.setCredentials(token);
-//     return oAuth2Client;
-//   } else {
-//     return getNewToken(oAuth2Client);
-//   }
-// }
+  if (fs.existsSync(TOKEN_PATH)) {
+    const token = JSON.parse(fs.readFileSync(TOKEN_PATH));
+    oAuth2Client.setCredentials(token);
+    return oAuth2Client;
+  } else {
+    return getNewToken(oAuth2Client);
+  }
+}
 
 //**************Esta opción esta habilitada únicamente para Producción**************
 //Autoriza la aplicación usando OAuth2
@@ -31,31 +30,13 @@ if (process.env.TOKEN_JSON && !fs.existsSync(TOKEN_PATH)) {
 }
 
 //************** Autorización para Producción **************
-async function authorize() {
-  const credentials = {
-  web: {
-    client_id: process.env.CLIENT_ID,
-    client_secret: process.env.CLIENT_SECRET,
-    redirect_uris: [process.env.REDIRECT_URI]
-  }
-};
-
-  const { client_secret, client_id, redirect_uris } = credentials.web;
-  const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
-
-  if (fs.existsSync(TOKEN_PATH)) {
-    const token = JSON.parse(fs.readFileSync(TOKEN_PATH));
-    oAuth2Client.setCredentials(token);
-    return oAuth2Client;
-  } else {
-    throw new Error('No se encontró token.json y no se puede generar automáticamente en entorno no interactivo.');
-  }
-}
+ 
 
 // Si no existe token.json, lanza una URL para generar uno nuevo
 function getNewToken(oAuth2Client) {
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: 'offline',
+    prompt: 'consent', // Asegura que se solicite el consentimiento del usuario
     scope: SCOPES,
   });
   console.log('Autoriza esta app visitando esta URL:', authUrl);
