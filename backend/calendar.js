@@ -9,7 +9,10 @@ const TOKEN_PATH = path.join(__dirname, 'token.json');
 //**************Esta opción esta habilitada únicamente para el desarrollo local**************
 //Autoriza la aplicación usando OAuth2
 async function authorize() {
-  const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH));
+  const credentials = process.env.CLIENT_SECRET_JSON // Verifica si CLIENT_SECRET_JSON está definido en el entorno
+  ? JSON.parse(process.env.CLIENT_SECRET_JSON) // Si está definido, lo usa directamente
+  : JSON.parse(fs.readFileSync(CREDENTIALS_PATH)); // Si no, lee el archivo client_secret.json
+
   const { client_secret, client_id, redirect_uris } = credentials.web;
   const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
 
