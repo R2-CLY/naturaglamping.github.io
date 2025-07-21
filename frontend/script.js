@@ -120,7 +120,8 @@ document.querySelectorAll('.domo-btn').forEach(btn => {
 // =============== DISPONIBILIDAD - BOOKING ===============
 async function checkAvailability() {
     servicioSeleccionado = sessionStorage.getItem('servicioSeleccionado') || 'Solo hospedaje';
-
+    sessionStorage.setItem('servicioSeleccionado', servicioSeleccionado);  // fuerza que se conserve
+    
     const checkin = document.getElementById('checkin-date').value;
     const checkout = document.getElementById('checkout-date').value;
 
