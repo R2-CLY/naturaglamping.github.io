@@ -163,7 +163,7 @@ async function checkAvailability() {
             const mensajeWhatsApp = `Hola, me gustaría reservar el servicio de: *${servicioSeleccionado}*, del ${checkinFormateado} al ${checkoutFormateado} para ${adults} adulto(s) y ${children} niño(s).`;
             const whatsappLink = `https://wa.me/522282406341?text=${encodeURIComponent(mensajeWhatsApp)}`;
 
-            const btnWhatsAppLink = document.querySelector('#whatsappBtn');
+            const btnWhatsAppLink = document.querySelector('#whatsappBtn a');
             if (btnWhatsAppLink) {
                 btnWhatsAppLink.href = whatsappLink;
 
