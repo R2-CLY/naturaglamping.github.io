@@ -3,13 +3,25 @@ node_modules/
 .env
 client_secret.json
 token.json
+token_old.json
 
 # Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
 
 # Editor configs (opcional)
 .vscode/
 .idea/
 .DS_Store
+
+# Nuevas restricciones
+.env.*
+.secret
+*.pem
+*.key
+coverage/
+__tests__/
+build/
+dist/
