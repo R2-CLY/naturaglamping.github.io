@@ -136,7 +136,7 @@ async function checkAvailability() {
 
     // Validar fechas
     if (!checkin || !checkout) {
-        showModal('<br>⚠️ Por favor selecciona tu fecha de llegada y de salida.', '', false);
+        showModal('<br>⚠️ Por favor completa tu fecha de llegada y de salida.', '', false);
         return;
     }
 
