@@ -147,7 +147,9 @@ async function checkAvailability() {
     const isLocalhost = window.location.hostname === 'localhost';
     const API_URL = isLocalhost
     ? 'http://localhost:3000'
-    : 'https://backend-ng-wfvh.onrender.com';
+    // old services whit render
+    // : 'https://backend-ng-wfvh.onrender.com';
+    : 'https://naturaglampinggithubio-production.up.railway.app';
 
     try {
         const response = await fetch(`${API_URL}/api/disponibilidad`, {
