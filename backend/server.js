@@ -187,6 +187,18 @@ app.get('/api/history', (req, res) => {
   });
 });
 
+// 📅 Endpoint para métricas del día actual
+app.get('/api/today', (req, res) => {
+  const today = new Date().toISOString().split('T')[0];
+  const statsToday = dailyStats[today] || { requests: 0, calendar_calls: 0 };
+
+  res.json({
+    fecha: today,
+    total_requests: statsToday.requests,
+    calendar_calls: statsToday.calendar_calls
+  });
+});
+
 // ← NUEVO: Guardar antes de cerrar el servidor
 process.on('SIGTERM', async () => {
   console.log('💾 Guardando estadísticas antes de cerrar...');
